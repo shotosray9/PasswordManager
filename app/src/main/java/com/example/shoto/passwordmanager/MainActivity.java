@@ -82,23 +82,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void setMasterPassword(){
-        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-        alertDialog.setTitle("Welcome to Password Manager! Please set up a master password. You need to use it every time you open the app.");
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-
-            }
-        });
-        alertDialog.show();
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Intent i = new Intent(MainActivity.this, MasterPassword.class);
+        startActivity(i);
     }
-
-    void requestMasterPassword(){
-
-    }
-
 }
 
 
